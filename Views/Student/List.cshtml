@@ -1,0 +1,32 @@
+﻿@{
+}
+
+@model List<StudentCRUD.Models.Entities.Student>
+<form>
+	<h1> All Students</h1>
+	<button class="btn btn-primary" asp-controller="Student" asp-action="Add">Add New Student</button>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Name</th>
+				<th>Email</th>
+				<th>Phone</th>
+				<th colspan="2" style="text-align:center">Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				<tr>
+					<td>@item.Id</td>
+					<td>@item.Name</td>
+					<td>@item.Email</td>
+					<td>@item.Phone</td>
+					<td style="text-align:right;"><a class="btn btn-primary btn-success" asp-controller="Student" asp-action="Edit" asp-route-id="@item.Id">Edit</a></td>
+					<td style="text-align:left;"><a class="btn btn-primary btn-danger" onclick="return confirm('Are you sure you want to delete?');" asp-controller="Student" asp-action="Delete" asp-route-id="@item.Id">Delete</a></td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</form>

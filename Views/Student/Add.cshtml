@@ -1,0 +1,30 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model StudentCRUD.Models.StudentViewModel;
+<form method="post">
+	<h1>Add Student</h1>
+
+	<div class="mt-3">
+		<label class="form-label">Name</label>
+		<input type="text" class="form-control" asp-for="Name" />
+	</div>
+	<div class="mt-3">
+		<label class="form-label">Email</label>
+		<input type="email" class="form-control" asp-for="Email" />
+	</div>
+	<div class="mt-3">
+		<label class="form-label">Phone</label>
+		<input type="number" maxlength="10" class="form-control" asp-for="Phone" />
+	</div>
+	<div class="mt-3">
+		<input type="checkbox" class="form-check-input" id="chkSubscribed" asp-for="Subscribed" />
+		<label class="form-check-label" for="chkSubscribed">Subscribed</label>
+	</div>
+	<div class="mt-3">
+		<button class="btn btn-primary">Submit</button>
+		<a class="btn btn-danger" asp-controller="Student" asp-action="List">Cancel</a>
+	</div>
+</form>
